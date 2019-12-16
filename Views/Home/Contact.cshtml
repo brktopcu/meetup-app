@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<div class="container padTop50">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Harita
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <iframe src="https://maps.google.com/maps?q=sakarya%20serdivan%20caddesi&t=&z=13&ie=UTF8&iwloc=&output=embed" width="500" height="675" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        İletişim Bilgileri
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <address>
+                        Etkinlik Sitesi<br />
+                        54187 Serdivan / SAKARYA<br />
+                        <i class="fa fa-phone"></i> +90 (234) 567 89 10 &nbsp; &nbsp;
+                        <i class="fa fa-envelope"></i> burak@sakarya.edu.tr
+                    </address>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        İletişim Formu
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="inputAdSoyad" class="col-sm-3 col-form-label">Ad Soyad *</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputAdSoyad" placeholder="Ad Soyad">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputMail" class="col-sm-3 col-form-label">Mail Adresi *</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputMail" placeholder="Mail Adresi">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputTelefon" class="col-sm-3 col-form-label">Telefon *</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputTelefon" placeholder="Telefon">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputKonu" class="col-sm-3 col-form-label">Konu *</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="inputKonu" placeholder="Konu">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputMesaj" class="col-sm-3 col-form-label">Mesaj *</label>
+                            <div class="col-sm-9">
+                                <textarea type="text" class="form-control" id="inputMesaj" placeholder="Mesaj" rows="6" cols="40"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputMesaj" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <button type="submit" class="btn btn-primary">Gönder</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

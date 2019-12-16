@@ -1,0 +1,49 @@
+﻿@model IEnumerable<etkinlikSitesi.Models.EtkinlikTuru>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Admin"))
+{
+    <div class="container padTop20">
+    @Html.ActionLink("Yeni Oluştur", "Create")
+    </div>
+}
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-3">
+                <div class="card border-primary mb-3" style="max-width: 20rem;">
+                    <div class="card-header">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='@Url.Action("Filter", "Etkinlik",new {id=item.EtkinlikTuruID})'">@Html.DisplayFor(modelItem => item.EtkinlikTuruAdi)</button>
+
+                    </div>
+                    <div class="container padTop20">
+                        @if (item.EtkinlikTuruResmi == null)
+                        {
+                            <img style='max-width:100%; max-height:100%;' src="~/Content/images/noImg.png" alt="" />
+                        }
+                        else
+                        {
+                            <img style='max-width:100%; max-height:100%;' src="data:image/png;base64,@System.Convert.ToBase64String(item.EtkinlikTuruResmi)" />
+                        }
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.EtkinlikTuruAciklama)</p>
+                        @if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Sil", "Delete", new { id = item.EtkinlikTuruID })
+                        }
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+

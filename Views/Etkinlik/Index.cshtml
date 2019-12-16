@@ -1,0 +1,100 @@
+﻿@model IEnumerable<etkinlikSitesi.Models.Etkinlik>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@if (Request.IsAuthenticated)
+{
+    <div class="container padTop20">
+        @Html.ActionLink("Yeni Oluştur", "Create")
+    </div>
+}
+    @*<table class="table table-borderless">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EtkinlikTuru.EtkinlikTuruAdi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EtkinlikAdi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EtkinlikAciklama)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EtkinlikZamani)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EtkinlikYeri)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtkinlikTuru.EtkinlikTuruAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtkinlikAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtkinlikAciklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtkinlikZamani)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtkinlikYeri)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EtkinlikID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EtkinlikID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EtkinlikID }) |
+                @Html.ActionLink("Katıl", "Katil", "Kayit", new { id = item.EtkinlikID }, null)
+            </td>
+        </tr>
+            }
+
+        </table>*@
+    <div class="container padTop20">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+                    <div class="card mb-3 padSides">
+                        <h3 class="card-header">@Html.DisplayFor(modelItem => item.EtkinlikAdi)</h3>
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                        </div>
+
+                        <div class="card-body">
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.EtkinlikAciklama)</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">@Html.DisplayFor(modelItem => item.EtkinlikZamani)</li>
+                            <li class="list-group-item">@Html.DisplayFor(modelItem => item.EtkinlikYeri)</li>
+
+                        </ul>
+
+                        <div class="card-body">
+                            @Html.ActionLink("Katıl", "Katil", "Kayit", new { id = item.EtkinlikID }, null)  |
+                            @Html.ActionLink("Katılacakları Gör", "Index", "Kayit", new { id = item.EtkinlikID }, null)
+                            @if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Admin"))
+                            {
+
+                                @Html.ActionLink("Sil", "Delete", new { id = item.EtkinlikID })<span />
+                                @Html.ActionLink("Düzenle", "Edit", new { id = item.EtkinlikID })
+                            }
+
+                        </div>
+                        <div class="card-footer text-muted">
+                            2 days ago
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>

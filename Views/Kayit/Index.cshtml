@@ -1,0 +1,36 @@
+﻿@model IEnumerable<etkinlikSitesi.Models.Kayit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+   
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationUser.AdiSoyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Etkinlik.EtkinlikAdi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationUser.AdiSoyadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Etkinlik.EtkinlikAdi)
+        </td>
+        <td>
+           
+            @Html.ActionLink("Ayrıntılar", "Details", new { id=item.KayitID }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.KayitID })
+        </td>
+    </tr>
+}
+
+</table>

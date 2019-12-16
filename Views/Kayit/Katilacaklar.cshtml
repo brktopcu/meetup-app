@@ -1,0 +1,37 @@
+﻿@model IEnumerable<etkinlikSitesi.Models.Kayit>
+@{
+    ViewBag.Title = "Katilacaklar";
+}
+
+    <div class="container">
+        @*<div class="row">
+            @foreach (var item in Model)
+            {
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.ApplicationUser.AdiSoyadi)</li>
+
+                </ul>
+            }
+        </div>*@
+        <table class="table padTop50">
+            <thead >
+                <tr>
+                    
+                    <th scope="col">Adı Soyadı</th>
+ 
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@Html.DisplayFor(modelItem => item.ApplicationUser.AdiSoyadi)</td>
+
+                    </tr>
+                }
+
+                </tbody>
+        </table>
+    </div>
+

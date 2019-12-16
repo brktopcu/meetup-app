@@ -1,0 +1,33 @@
+﻿@model etkinlikSitesi.Models.EtkinlikTuru
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+    <h4>EtkinlikTuru</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EtkinlikTuruAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EtkinlikTuruAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EtkinlikTuruAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EtkinlikTuruAciklama)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EtkinlikTuruID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

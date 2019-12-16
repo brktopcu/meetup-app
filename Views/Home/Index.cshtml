@@ -1,0 +1,38 @@
+﻿@model EtkinlikSitesi.Controllers.HomeController.SonEtkinlikler
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron jumbotron-fluid jumbo">
+    <div class="container">
+        <h1 class="display-4">Etkinlik Sitesi</h1>
+        <p class="lead">İstediğiniz etkinliğe hemen katılın</p>
+        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='@Url.Action("Register", "Account")'">Hemen Kaydolun!</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <h3>Son Eklenen Etkinlikler:</h3>
+    </div>
+    @*Son eklenen 4 etkinlik *@
+   
+    <div class="container">
+    <div class="row padTop20">
+        @foreach (var item in Model.etk)
+        {
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">@item.EtkinlikAdi</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">@item.EtkinlikZamani.ToString()</h6>
+                        <p class="card-text">@item.EtkinlikAciklama</p>
+                       
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    </div>
+    
+</div>
